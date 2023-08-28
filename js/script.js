@@ -1,12 +1,18 @@
-if (window.DeviceMotionEvent) {
-    window.addEventListener('devicemotion', function(event) {
-        const acceleration = event.acceleration;
-        console.log(`Acceleratie X: ${acceleration.x}, Y: ${acceleration.y}, Z: ${acceleration.z}`);
+//Magnetometer
+
+
+
+if (window.DeviceOrientationEvent && window.DeviceMotionEvent) {
+    window.addEventListener('deviceorientation', function(event) {
+        const absolute = event.absolute;
+        const alpha = event.alpha;
+        const beta = event.beta;
+        const gamma = event.gamma;
+        console.log(`Absolute: ${absolute}, Alpha: ${alpha}, Beta: ${beta}, Gamma: ${gamma}`);
     });
 } else {
-    console.log('Accelerometer wordt niet ondersteund in deze browser.');
+    console.log('Magnetometer wordt niet ondersteund in deze browser.');
 }
-
 
 
 const textarea = document.querySelector("textarea"),
